@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prague Pizza &amp; Tacos</title>
+<meta name="description" content="Pizza and tacos in Prague. Takeaway and delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home">Prague Pizza &amp; Tacos</a>
+  <nav>
+    <a href="#menu" data-i18n="navMenu">Menu</a>
+    <a href="#offers" data-i18n="navOffers">Offers</a>
+    <a href="#contact" data-i18n="navContact">Contact</a>
+  </nav>
+  <div class="tools">
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button><button data-lang="cs">CZ</button>
+    </div>
+    <button id="cartBtn" class="cart-btn"><span data-i18n="cart">Cart</span> <b id="cartCount">0</b></button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-text">
+      <h1 data-i18n="heroTitle">Hot pizza. Loud tacos. Fast in Prague.</h1>
+      <p data-i18n="heroSub">Stone-baked pizza and street-style tacos for takeaway and delivery.</p>
+      <div class="cta">
+        <a href="#menu" class="btn light" data-i18n="orderNow">Order now</a>
+        <a href="#menu" class="btn ghost" data-i18n="viewMenu">View menu</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="pizza"></div><div class="taco">🌮</div></div>
+  </section>
+
+  <section id="menu" class="wrap">
+    <h2 data-i18n="menuTitle">Menu</h2>
+    <p class="note" data-i18n="sample">Sample prices – to be confirmed by the restaurant.</p>
+    <div class="filters">
+      <input id="search" type="search" data-i18n-ph="search" placeholder="Search the menu">
+      <div id="chips"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <section id="offers" class="wrap">
+    <h2 data-i18n="offersTitle">Special offers</h2>
+    <div id="offerList" class="offers"></div>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <div>
+      <h2 data-i18n="contactTitle">Contact &amp; hours</h2>
+      <p><b data-i18n="address">Address</b>: <span id="cAddress"></span></p>
+      <p><b data-i18n="phone">Phone</b>: <span id="cPhone"></span></p>
+      <p><b data-i18n="hours">Opening hours</b>: <span id="cHours"></span></p>
+      <p><a id="mapLink" class="btn solid" target="_blank" rel="noopener" data-i18n="openMap">Open in Google Maps</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer">Demo website. Ordering opens a WhatsApp message; no online payment or order processing is included.</p>
+</footer>
+
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-head"><h3 data-i18n="cart">Cart</h3><button id="closeCart" aria-label="Close">✕</button></div>
+  <div id="cartItems"></div>
+  <p class="total"><span data-i18n="total">Total</span>: <b id="cartTotal">0 Kč</b></p>
+  <form id="orderForm" novalidate>
+    <div class="seg">
+      <label><input type="radio" name="mode" value="delivery" checked> <span data-i18n="delivery">Delivery</span></label>
+      <label><input type="radio" name="mode" value="pickup"> <span data-i18n="pickup">Pickup</span></label>
+    </div>
+    <label><span data-i18n="name">Name</span><input name="name" autocomplete="name"></label>
+    <label><span data-i18n="phoneField">Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+    <label id="addrRow"><span data-i18n="addrField">Delivery address in Prague</span><input name="addr" autocomplete="street-address"></label>
+    <p class="note" data-i18n="pay">Payment is arranged with the restaurant on delivery or pickup.</p>
+    <p id="err" class="err" role="alert"></p>
+    <button class="btn solid wide" type="submit" data-i18n="sendWa">Send order via WhatsApp</button>
+  </form>
+</aside>
+<script src="script.js"></script>
+</body>
+</html>
